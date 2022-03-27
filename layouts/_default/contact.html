@@ -56,7 +56,14 @@
             status.innerHTML = "Thanks for your submission!";
             form.reset()
           }).catch(error => {
-            status.innerHTML = "Oops! There was a problem submitting your form";
+            // TODO: TypeError is because of CORS
+            // skip this as error, find better solution
+            if (error.name == "TypeError") {
+              status.innerHTML = "Thanks for your submission!";
+              form.reset()
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form";
+            }
           });
         }
         form.addEventListener("submit", handleSubmit)
