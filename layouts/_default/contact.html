@@ -129,4 +129,36 @@
   </div>
 </section>
 
+{{with .Params.map}}
+{{if .enable}}
+<section class="call-to-action has-bg-color">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block">
+          <div class="section-title text-center mb-0" data-aos="fade-up">
+            <h2 class="title underline-none">{{.title | markdownify}}</h2>
+          </div>
+          
+          <div class="mb-0" data-aos="fade-up" data-aos-delay="400" data-aos-duration="900">
+            <iframe class="container-map" src="{{.link}}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="has-circle has-bg-anim" data-aos="fade-in">
+          <img class="wave-1 w-100" src="{{`images/waves/05.svg` | absURL}}" alt="*">
+          <span class="circle-1 ratio-32"></span>
+          <span class="circle-2 ratio-85 fill"></span>
+          <span class="circle-3 ratio-47"></span>
+          <span class="circle-4 ratio-20 fill"></span>
+          <span class="circle-5 ratio-73"></span>
+          <span class="circle-6 ratio-37"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{end}}
+{{end}}
+
 {{ end }}

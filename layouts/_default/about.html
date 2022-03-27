@@ -1,6 +1,6 @@
 {{define "main"}}
 
-{{ partial "page-header.html" . }}
+<!-- {{ partial "page-header.html" . }} -->
 
 {{with .Params.who_we_are}}
 {{if .enable}}
@@ -206,7 +206,7 @@
 {{with .Params.our_team}}
 {{if .enable}}
 <section>
-  <div class="container">
+  <div class="container" id="our_team">
     <div class="row">
       <div class="col-12">
         <div class="section-title text-center" data-aos="fade-in">

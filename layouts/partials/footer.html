@@ -29,7 +29,7 @@
 {{end}}
 
 
-<footer class="footer pb-5 {{if site.Params.cta.enable}}{{else}}mt-0{{end}}">
+<footer class="footer pb-5 {{if or site.Params.cta.enable .Params.map.enable}}{{else}}mt-0{{end}}">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12">
