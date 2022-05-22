@@ -10,64 +10,28 @@
           {{ if fileExists (add `assets/` .Params.contact_image) }}
           {{$img:= resources.Get .Params.contact_image }}
           {{$img:= $img.Resize "575x"}}
-          <img loading="lazy" decoding="async" class="img-fluid" width="{{$img.Width}}" height="{{$img.Height}}" src="{{$img.RelPermalink}}" alt="cobtact image" onerror="this.onerror=null;this.src='{{$img.RelPermalink}}'">
+          <img loading="lazy" decoding="async" class="img-fluid" width="{{$img.Width}}" height="{{$img.Height}}"
+            src="{{$img.RelPermalink}}" alt="cobtact image"
+            onerror="this.onerror=null;this.src='{{$img.RelPermalink}}'">
           {{end}}
         </div>
       </div>
-      {{with site.Params.contact_form_action}}
+      {{with site.Params.contact_form_id}}
       <div class="col-lg-5 col-md-10" data-aos="fade-up">
         <div class="contact-form">
           <div class="mb-4">
             <h3>Send A Message</h3>
           </div>
-          <form id="contact-form" action="{{.}}" method="POST">
-            <p id="form-status" class="form-status"></p>
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input class="form-control shadow-none" id="name" name="{{site.Params.contact_name_entry}}" type="text" placeholder="Full Name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input class="form-control shadow-none" id="email" name="{{site.Params.contact_email_entry}}" type="email" placeholder="Email Address" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Your Message</label>
-              <textarea class="form-control shadow-none" id="message" name="{{site.Params.contact_message_entry}}" rows="4" required></textarea>
-            </div>
-
-            <button class="btn btn-primary w-100 mt-4" type="submit" aria-label="Send Message">Send Message</button>
-          </form>
+          <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+              region: "{{site.Params.contact_region}}",
+              portalId: "{{site.Params.contact_portal_id}}",
+              formId: "{{.}}"
+            });
+          </script>
         </div>
       </div>
-
-      <script>
-        var form = document.getElementById('contact-form');
-        async function handleSubmit(event) {
-          event.preventDefault();
-          var status = document.getElementById("form-status");
-          var data = new FormData(event.target);
-          fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: {
-              'Accept': 'application/json'
-            }
-          }).then(response => {
-            status.innerHTML = "Thanks for your submission!";
-            form.reset()
-          }).catch(error => {
-            // TODO: TypeError is because of CORS
-            // skip this as error, find better solution
-            if (error.name == "TypeError") {
-              status.innerHTML = "Thanks for your submission!";
-              form.reset()
-            } else {
-              status.innerHTML = "Oops! There was a problem submitting your form";
-            }
-          });
-        }
-        form.addEventListener("submit", handleSubmit)
-      </script>
       {{end}}
     </div>
 
@@ -139,9 +103,10 @@
           <div class="section-title text-center mb-0" data-aos="fade-up">
             <h2 class="title underline-none">{{.title | markdownify}}</h2>
           </div>
-          
+
           <div class="mb-0" data-aos="fade-up" data-aos-delay="400" data-aos-duration="900">
-            <iframe class="container-map" src="{{.link}}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="container-map" src="{{.link}}" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
 
