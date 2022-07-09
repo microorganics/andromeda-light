@@ -218,13 +218,13 @@
     </div>
     <div class="row justify-content-around">
       {{range .team}}
-      <div class="col-lg-3 col-md-4 col-6">
+      <div class="col-lg-2 col-md-4 col-6">
         <div class="team-item text-center">
           <div class="team-image">
             {{ if fileExists (add `assets/` .image) }}
             {{$img:= resources.Get .image }}
-            {{$img:= $img.Resize "175x "}}
-            {{$imgWebp:= $img.Resize "175x webp"}}
+            {{$img:= $img.Resize "575x "}}
+            {{$imgWebp:= $img.Resize "575x webp"}}
             <img loading="lazy" decoding="async" class="w-100 img-fluid rounded-circle" width="{{$img.Width}}" height="{{$img.Height}}" src="{{$imgWebp.RelPermalink}}" alt="Team Image" onerror="this.onerror=null;this.src='{{$img.RelPermalink}}'">
             {{end}}
           </div>
