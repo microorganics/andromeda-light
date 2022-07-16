@@ -141,7 +141,7 @@ body {
     left: 0;
     top: 0;
     z-index: -2;
-    background-color: lighten($primary-color, 83);
+    background-color: lighten($primary-color, 40);
     transform: scale(0);
     border-radius: 30px;
     transition: 1.5s cubic-bezier(.105, .84, .44, 1);
@@ -149,7 +149,7 @@ body {
 
   &.aos-animate::before {
     transform: scale(1);
-    background-color: lighten($primary-color, 62);
+    background-color: lighten($primary-color, 12);
   }
 }
 
