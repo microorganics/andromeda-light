@@ -16,20 +16,13 @@
           {{end}}
         </div>
       </div>
-      {{with site.Params.contact_form_id}}
+      {{with site.Params.contact_form_url}}
       <div class="col-lg-5 col-md-10" data-aos="fade-up">
         <div class="contact-form">
           <div class="mb-4">
             <h3>Send A Message</h3>
           </div>
-          <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/v2.js"></script>
-          <script>
-            hbspt.forms.create({
-              region: "{{site.Params.contact_region}}",
-              portalId: "{{site.Params.contact_portal_id}}",
-              formId: "{{.}}"
-            });
-          </script>
+            <a href="{{ . }}" class="btn btn-primary w-100 mt-4" target="_blank">Form Link</a>
         </div>
       </div>
       {{end}}
